@@ -1,0 +1,63 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="custom-cursor"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("mousemove", function (event) {
+          let cursor = document.querySelector<HTMLElement>(".custom-cursor");
+          if (cursor && cursor.style) {
+            
+            cursor.style.left = event.clientX - 22 + "px";
+            cursor.style.top = event.clientY - 20 + "px";
+          }
+        });
+      });
+    </script>
+    <slot />
+  </body>
+</html>
+<style is:global>
+  @font-face {
+    font-family: "Consola";
+    src: url("/ConsolaMono-Book.ttf");
+  }
+
+  html {
+    background: #000;
+    background-size: 224px;
+    cursor: url("./../images/mouse.png"), auto;
+  }
+
+  * {
+    font-family: "Consola";
+    color: white;
+  }
+
+  .custom-cursor {
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #1e63ae;
+    filter: blur(20px);
+    pointer-events: none;
+    z-index: 9999;
+  }
+</style>

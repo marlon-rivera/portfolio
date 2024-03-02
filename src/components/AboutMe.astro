@@ -1,0 +1,89 @@
+---
+import Line from "./Line.astro";
+import Emoji from "./../images/emoji.webp";
+import Comment from "./../components/Comment.astro";
+---
+
+<section class="w-screen h-screen animate-zoom-in flex flex-col justify-center">
+  <Line side="end" animation="animatedLR" margin="top-10 mr-20" />
+  <div class="flex flex-row justify-around w-screen items-center h-auto" >
+    <div class="flex flex-col align-top items-center">
+      <img src={Emoji.src} class="m-8 w-[230px]" alt="Emoji Marlon Rivera" />
+      <div>
+        <ul>
+          <li>
+            <a
+              href="/projects"
+              class="flex justify-center mb-6 items-center text-white text-xl hover:scale-150"
+            >
+              <Comment />
+              Projects
+            </a>
+          </li>
+          <li>
+            <a
+              href="/information"
+              class="flex justify-center mb-6 items-center text-white text-xl hover:scale-150"
+            >
+              <Comment />
+              Information
+            </a>
+          </li>
+          <li>
+            <a
+              href="/contact"
+              class="flex justify-center mb-6 items-center text-white text-xl hover:scale-150"
+            >
+              <Comment />
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="w-[700px]">
+      <h2 class="text-white text-7xl text-right mr-44">About me</h2>
+      <p class="text-white">
+        I am an eighth-semester student majoring in Systems and Computing
+        Engineering at UPTC (Tunja). My passion for technology is reflected in
+        my motivation and enthusiasm for facing challenges. I am a proactive
+        collaborator and effective team player, capable of making significant
+        contributions to joint projects.
+      </p>
+      <p>
+        My results-oriented approach is complemented by a natural ability to set
+        and achieve goals. In addition to my strong technical skills, I stand
+        out for my capacity to adapt to group dynamics and generate innovative
+        ideas. My insatiable desire to learn drives me to stay updated on the
+        latest technological trends and actively seek opportunities for personal
+        and professional growth.
+      </p>
+      <p>
+        I am convinced that my combination of skills, positive attitude, and
+        commitment to excellence will be valuable for your company. I look
+        forward to the opportunity to be part of a dynamic team and contribute
+        to the ongoing success of the organization.
+      </p>
+    </div>
+  </div>
+
+  <Line side="start" animation="animatedRL" margin="flex-start bottom-10 ml-20" />
+</section>
+
+<style>
+  h2 {
+    text-shadow:
+      1px 0 #0000ff,
+      -1px 0 #0000ff,
+      0 1px #0000ff,
+      0 -1px #0000ff,
+      1px 1px #0000ff,
+      -1px -1px #0000ff,
+      1px -1px #0000ff,
+      -1px 1px #0000ff;
+  }
+  p {
+    color: white;
+    margin: 30px 0px 30px 0px;
+  }
+</style>

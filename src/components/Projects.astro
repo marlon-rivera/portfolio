@@ -1,0 +1,72 @@
+---
+import Navbar from "./Navbar.astro";
+import LineHorizontal from "./LineHorizontal.astro";
+import rickAndMorty from "./../images/RickAndMorty.webp";
+import camgro from "./../images/Camgro.webp";
+import PillTech from "./PillTech.astro";
+import react from "./icons/React.astro";
+
+const PROJECTS = [
+  {
+    title: "Rick and Morty Information",
+    description: `An interactive platform that allows fans to explore and learn about
+            the characters of Rick and Morty. With an intuitive interface and
+            navigation arrows, users can discover detailed information about each
+            character, including their vital status and episodes in which they
+            appear. An immersive experience for followers of the series.`,
+    img: rickAndMorty.src,
+  },
+];
+---
+
+<section class="h-screen">
+  <Navbar />
+  <script>
+    let page = document.getElementById("Projects");
+    if (page) {
+      page.style.display = "flex";
+    }
+  </script>
+  <LineHorizontal />
+  <h2 class="text-6xl pt-20 ml-10">Projects</h2>
+  <div>
+    <div class="projects flex flex-col gap-8 mt-5 justify-center items-center">
+      {
+        PROJECTS.map((p) => (
+          <article>
+            <h3>{p.title}</h3>
+            <img src={p.img} alt="" />
+            <p>{p.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+<style>
+  h2 {
+    text-shadow:
+      1px 0 #0000ff,
+      -1px 0 #0000ff,
+      0 1px #0000ff,
+      0 -1px #0000ff,
+      1px 1px #0000ff,
+      -1px -1px #0000ff,
+      1px -1px #0000ff,
+      -1px 1px #0000ff;
+  }
+  .projects img {
+    width: 250px;
+    border-radius: 0.25rem;
+  }
+  .projects article {
+    border-radius: 0.25rem;
+    display: flex;
+
+    width: 80%;
+    padding: 10px;
+    background-color: rgba(0, 0, 255, 0.18);
+    gap: 1rem;
+    max-width: max-content;
+  }
+</style>

@@ -1,0 +1,59 @@
+---
+interface Props {
+  side: string;
+  margin: string;
+  animation: string;
+}
+const { side, margin, animation } = Astro.props;
+---
+
+<div class=`flex ${side === 'start' && 'justify-start'} ${side === 'end' && 'justify-end'}`>
+  <div class=`bg-[#0000FF] w-[480px] h-[6px] borderDiv ${margin} ${animation}`>
+    <div class="bg-[#5A5AF9] w-[460px] h-[4px] borderDiv">
+      <div class="bg-white h-[2px] w-[440px] borderDiv"></div>
+      <script>
+      </script>
+    </div>
+  </div>
+</div>
+
+<style>
+  .borderDiv {
+    border-radius: 37% 63% 34% 66% / 100% 0% 100% 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .animatedLR {
+    animation: move-left-right 4s infinite;
+  }
+
+  .animatedRL {
+    animation: move-right-left 4s infinite;
+  }
+
+  @keyframes move-left-right {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-150%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes move-right-left {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(150%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+</style>

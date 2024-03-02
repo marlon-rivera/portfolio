@@ -1,0 +1,35 @@
+<div class="absolute mt-10 ml-6 animatedTD">
+    <div class=`bg-[#0000FF] w-[6px] h-[370px] borderDiv`>
+      <div class="bg-[#5A5AF9] w-[4px] h-[350px] borderDiv">
+        <div class="bg-white h-[320px] w-[2px] borderDiv"></div>
+        <script>
+        </script>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    .borderDiv {
+      border-radius: 100% 0% 100% 0% / 51% 51% 49% 49% ;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .animatedTD {
+      animation: move-top-down 4s infinite;
+    }
+  
+    @keyframes move-top-down {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(50%);;
+      }
+      100%{
+        transform: translateY(0%);
+      }
+    }
+  </style>
+  

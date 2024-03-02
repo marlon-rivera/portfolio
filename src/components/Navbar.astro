@@ -1,0 +1,28 @@
+---
+import CommentHtml from "./CommentHtml.astro";
+---
+
+<nav class="absolute right-0 mt-3 mr-3">
+  <ul class="flex">
+    <a href="/aboutMe">
+      <CommentHtml text="About Me" />
+    </a>
+    <a href="/projects">
+      <CommentHtml text="Projects" />
+    </a>
+    <a href="/information">
+      <CommentHtml text="Information" />
+    </a>
+    <a href="/contact">
+      <CommentHtml text="Contact" />
+    </a>
+  </ul>
+</nav>
+<style>
+  a {
+    color: #fff;
+  }
+  a:hover{
+    transform: scale(1.2);
+  }
+</style>
