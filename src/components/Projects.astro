@@ -3,9 +3,51 @@ import Navbar from "./Navbar.astro";
 import LineHorizontal from "./LineHorizontal.astro";
 import rickAndMorty from "./../images/RickAndMorty.webp";
 import camgro from "./../images/Camgro.webp";
-import PillTech from "./PillTech.astro";
-import react from "./icons/React.astro";
-
+import React from "./icons/React.astro";
+import JS from "./icons/JS.astro";
+import HTML from "./icons/HTML.astro"
+import CSS from "./icons/CSS.astro";
+import ReduxJS from "./icons/ReduxJS.astro";
+import SpringBoot from "./icons/SpringBoot.astro";
+import PostgreSQL from "./icons/PostgreSQL.astro";
+import Comment from "./Comment.astro"
+const TAGS = {
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-[#F7DE1F] text-black",
+    icon: JS,
+  },
+  REACT: {
+    name: "React JS",
+    class: "bg-[#39C1D7] text-white",
+    icon: React,
+  },
+  HTML: {
+    name : "HTML",
+    class : "bg-[#E65100] text-white",
+    icon : HTML
+  },
+  CSS : {
+    name : "CSS",
+    class : "bg-[#0277BD] text-white",
+    icon : CSS
+  },
+  REDUX : {
+    name : "Redux JS",
+    class : "bg-[#6C4EB0] text-white",
+    icon : ReduxJS
+  },
+  SPRINGBOOT : {
+    name : "Spring Boot",
+    class : "bg-[#BAE0BD] text-[#5E9C76]",
+    icon : SpringBoot
+  },
+  POSTGRESQL : {
+    name : "PostgreSQL",
+    class : "bg-[#0277BD] text-white",
+    icon : PostgreSQL
+  }
+};
 const PROJECTS = [
   {
     title: "Rick and Morty Information",
@@ -15,6 +57,19 @@ const PROJECTS = [
             character, including their vital status and episodes in which they
             appear. An immersive experience for followers of the series.`,
     img: rickAndMorty.src,
+    technologies: [TAGS.REACT, TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS, TAGS.REDUX],
+    code : "https://github.com/marlon-rivera/rick-and-morty-project",
+    preview : "https://rickandmortyinfoserie.netlify.app/"
+  },
+  {
+    title: "CAMGRO",
+    description: `It's a platform that simplifies the connection between agricultural producers 
+and buyers. Producers can post their products with details and prices, while 
+buyers can search and contact directly through an integrated chat. With registration, login, and search functions, we streamline the process of buying 
+and selling agricultural products.`,
+    img: camgro.src,
+    technologies: [TAGS.REACT, TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS, TAGS.SPRINGBOOT, TAGS.POSTGRESQL],
+    code : "https://github.com/marlon-rivera/CAMGRO"
   },
 ];
 ---
@@ -33,10 +88,36 @@ const PROJECTS = [
     <div class="projects flex flex-col gap-8 mt-5 justify-center items-center">
       {
         PROJECTS.map((p) => (
-          <article>
-            <h3>{p.title}</h3>
-            <img src={p.img} alt="" />
-            <p>{p.description}</p>
+          <article class="flex flex-col">
+            <div>
+              <h3 class="text-2xl">{p.title}</h3>
+            </div>
+            <div class="flex gap-3">
+              <img src={p.img} alt="" />
+              <div>
+                <p>{p.description}</p>
+                <div>
+                  <div>
+                    <ul class="flex flex-wrap gap-2 mt-4">
+                      {p.technologies.map((t) => (
+                        <li>
+                          <span class=`flex rounded-full p-2 ${t.class} justify-center items-center gap-2` >
+                            <t.icon class="size-5" />
+                            {t.name}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                    </div>
+                  <div class="flex justify-end gap-x-5">
+                    {p.code && <span class="flex justify-center items-center">
+                    <Comment /> <a href={p.code} target="_blank" rel="noreferrer">Code</a></span>}
+                    {p.preview && <span class="flex justify-center items-center">
+                    <Comment /> <a href={p.preview} target="_blank" rel="noreferrer">Preview</a></span>}
+                    </div>
+                </div>
+              </div>
+            </div>
           </article>
         ))
       }
