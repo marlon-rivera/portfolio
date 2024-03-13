@@ -1,0 +1,82 @@
+---
+import Comment from "./Comment.astro";
+---
+
+<div
+  id="menuPhone"
+  class="menu hidden absolute z-index-[1] right-4 top-4 w-[70%] h-[70%] bg-[#0000ff] rounded-lg md:hidden"
+>
+  <ul class="flex flex-col items-start m-6">
+    <li id="menuItem">
+      <a
+        id="menuItem"
+        href="#"
+        class="flex text-4xl justify-center mb-6 items-center text-white hover:scale-150"
+      >
+        <Comment id="menuItem" />
+        Menu
+      </a>
+    </li>
+    <li class="ml-6">
+      <a
+        href="/aboutMe"
+        class="flex justify-center mb-6 items-center text-white text-xl hover:scale-150"
+      >
+        <Comment />
+        About Me
+      </a>
+    </li>
+    <li class="ml-6">
+      <a
+        href="/projects"
+        class="flex justify-center mb-6 items-center text-white text-xl hover:scale-150"
+      >
+        <Comment />
+        Projects
+      </a>
+    </li>
+    <li class="ml-6">
+      <a
+        href="/information"
+        class="flex justify-center mb-6 items-center text-white text-xl hover:scale-150"
+      >
+        <Comment />
+        Information
+      </a>
+    </li>
+    <li class="ml-6">
+      <a
+        href="/contactMe"
+        class="flex justify-center mb-6 items-center text-white text-xl hover:scale-150"
+      >
+        <Comment />
+        Contact
+      </a>
+    </li>
+  </ul>
+  <script>
+    document.addEventListener("click", function (event) {
+      const menu = document.getElementById("menuPhone");
+      if (event.target instanceof HTMLElement && menu instanceof HTMLElement) {
+        if (
+          window.innerWidth <= 768 &&
+          (!menu.contains(event.target) || event.target.id === "menuItem")
+        ) {
+          if (event.target.id != "menu") {
+            menu.style.display = "none";
+
+            const menuBotton = document.getElementById("menu");
+            if (menuBotton) {
+              menuBotton.style.display = "block";
+            }
+          }
+        }
+      }
+    });
+  </script>
+</div>
+<style>
+  .menu {
+    backdrop-filter: blur(10px);
+  }
+</style>

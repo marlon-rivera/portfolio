@@ -1,4 +1,11 @@
-<div class="absolute mt-10 ml-6 animatedTD">
+---
+interface Props {
+  style : string;
+}
+
+const {style} = {...Astro.props}
+---
+<div class=`absolute  ${style}`>
     <div class=`bg-[#0000FF] w-[6px] h-[370px] borderDiv`>
       <div class="bg-[#5A5AF9] w-[4px] h-[350px] borderDiv">
         <div class="bg-white h-[320px] w-[2px] borderDiv"></div>
@@ -25,7 +32,23 @@
         transform: translateY(0);
       }
       50% {
-        transform: translateY(50%);;
+        transform: translateY(-50%);
+      }
+      100%{
+        transform: translateY(0%);
+      }
+    }
+
+    .animatedDT{
+      animation: move-down-top 4s infinite;
+    }
+
+    @keyframes move-down-top {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(50%);
       }
       100%{
         transform: translateY(0%);

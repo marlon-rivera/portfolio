@@ -11,21 +11,21 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
-    <div class="custom-cursor"></div>
+    <div class="custom-cursor hidden md:block"></div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         document.addEventListener("mousemove", function (event) {
           let cursor = document.querySelector<HTMLElement>(".custom-cursor");
           if (cursor && cursor.style) {
             
-            cursor.style.left = event.clientX - 22 + "px";
-            cursor.style.top = event.clientY - 20 + "px";
+            cursor.style.left = event.clientX - 13 + "px";
+            cursor.style.top = event.clientY - 16 + "px";
           }
         });
       });
@@ -52,8 +52,8 @@ const { title } = Astro.props;
 
   .custom-cursor {
     position: fixed;
-    width: 70px;
-    height: 70px;
+    width: 40px;
+    height: 50px;
     border-radius: 50%;
     background-color: #1e63ae;
     filter: blur(20px);

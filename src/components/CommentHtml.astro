@@ -10,12 +10,12 @@ const { text } = Astro.props;
 
 <div class="w-fit mt-4 flex flex-col items-center justify-center">
   <div class="flex items-center">
-    <img src={commentO.src} class="" alt="Comment html" />
-    <p class="text-white text-2xl">{text}</p>
-    <img src={commentC.src} alt="Comment html" />
+    <img src={commentO.src} class="w-[60px]" alt="Comment html" />
+    <p class="text-white">{text}</p>
+    <img src={commentC.src} class="w-[50px]" alt="Comment html" />
   </div>
   <div class="justify-center items-center w-full hidden" id={text}>
-    <img src={select.src} alt="selected" class="bg-red-500" />
+    <img src={select.src} alt="selected" class="w-[180px]" />
   </div>
   <style></style>
 </div>

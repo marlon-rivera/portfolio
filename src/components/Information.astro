@@ -1,0 +1,208 @@
+---
+import Navbar from "./Navbar.astro"
+import LineHorizontal from "./LineHorizontal.astro"
+import verticalLine from "./../images/VerticalLine.png"
+import MenuPhone from "./MenuPhone.astro"
+import Comment from "./Comment.astro"
+import ReactJS from "./icons/React.astro"
+import JS from "./icons/JS.astro";
+import HTML from "./icons/HTML.astro"
+import CSS from "./icons/CSS.astro";
+import ReduxJS from "./icons/ReduxJS.astro";
+import SpringBoot from "./icons/SpringBoot.astro";
+import PostgreSQL from "./icons/PostgreSQL.astro";
+import Tailwind from "./icons/Tailwind.astro"
+import ExpressJS from "./icons/ExpressJS.astro"
+import ASTRO from "./icons/AstroIcon.astro"
+import Oracle from "./icons/Oracle.astro"
+import MySQL from "./icons/MySQL.astro"
+import SQLServer from "./icons/SQLServer.astro"
+import MongoDB from "./icons/MongoDB.astro"
+const TAGS = {
+    REACT: {
+    name: "React JS",
+    class: "bg-[#39C1D7] text-white",
+    icon: ReactJS,
+  },
+  ASTRO:{
+    name : "Astro",
+    class: "bg-white",
+    icon: ASTRO
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-[#F7DE1F] text-black",
+    icon: JS,
+  },
+  HTML: {
+    name : "HTML",
+    class : "bg-[#E65100] text-white",
+    icon : HTML
+  },
+  CSS : {
+    name : "CSS",
+    class : "bg-[#0277BD] text-white",
+    icon : CSS
+  },
+  TAILWIND : {
+    name: "Tailwind",
+    class : "bg-[#00C1E0]",
+    icon : Tailwind
+  },
+  REDUX : {
+    name : "Redux JS",
+    class : "bg-[#6C4EB0] text-white",
+    icon : ReduxJS
+  },
+  EXPRESSJS :{
+    name : "Express JS",
+    class : "bg-white",
+    icon : ExpressJS
+  },
+  SPRINGBOOT : {
+    name : "Spring Boot",
+    class : "bg-[#BAE0BD] text-[#5E9C76]",
+    icon : SpringBoot
+  },
+  POSTGRESQL : {
+    name : "PostgreSQL",
+    class : "bg-[#0277BD] text-white",
+    icon : PostgreSQL
+  }, 
+  ORACLE : {
+    name : "Oracle",
+    class : "bg-[#FF0000]",
+    icon : Oracle
+  },
+  MYSQL : {
+    name : "MySQL",
+    class : "bg-[#00796B]",
+    icon : MySQL
+  }, 
+  SQLSERVER : {
+    name : "SQLServer",
+    class : "bg-white",
+    icon : SQLServer
+  },
+  MONGODB : {
+    name : "Mongo DB",
+    class : "bg-[#499D4A]",
+    icon : MongoDB
+  }
+};
+const tagsArray = Object.entries(TAGS).map(([key, value]) => ({
+  id: key,
+  ...value
+}));
+
+---
+
+<section>
+    <Navbar />
+    <script>
+        let page = document.getElementById("Information");
+        if (page) {
+          page.style.display = "flex";
+        }
+      </script>
+      <div class="flex justify-around w-screen md:hidden">
+        <h2 class="text-4xl md:text-6xl md:pt-20 ml-10">Information</h2>
+        <button id="menu" class="absoulte top-2 rigth-2 bg-[#0000ff] bg-opacity-[0.2] rounded-md mr-4 md:hidden"> <Comment id="menu" /> </button>
+              <script>
+                let menu = document.getElementById("menu")
+                menu?.addEventListener("click", ()=>{
+                  let menuPhone = document.getElementById("menuPhone")
+                  if(menuPhone){
+                    if(menuPhone.style.display == "block"){
+                      menuPhone.style.display = "none";
+                    }else{
+                      if(menu){
+                        menu.style.display = "none"
+                      }
+                      menuPhone.style.display = "flex"
+                    }
+                  }
+                })
+              </script>
+              <MenuPhone />
+      </div>
+    <article class="w-screen  h-screen flex  justify-center">
+        <LineHorizontal style="mt-10 left-2 animatedDT" />
+        <div class="w-[90%] md:flex">
+            <div style="flex-grow:1;">
+                <h2 class="text-3xl md:text-6xl pt-20 ml-10">Technologies</h2>
+                <ul class="ml-14 mt-2">
+                    {
+                    tagsArray.map(t => (
+                        
+                        <li class="flex items-center">
+                            - <t.icon class=`${t.class} rounded-full size-4` />  <span class="ml-2">  {t.name}</span> 
+                        </li>
+                    ))}
+                    
+                </ul>
+                <h2 class="text-3xl md:text-6xl pt-20 md:pt-0 ml-10">Languages</h2>
+                <ul class="ml-14 mt-6">
+                    <li>
+                        - Spanish (Native)
+                    </li>
+                    <li>
+                        - English (A2)
+                    </li>
+                </ul>
+            </div>
+            <div class="hidden md:block">
+                <img src={verticalLine.src} class="h-[85%] ml-0 mt-20" alt="vertical line">
+            </div>
+            <div style="flex-grow:1;" class="pb-10 md:pb-0">
+                <h2 class="text-3xl md:text-6xl pt-20 ml-10">Skills</h2>
+                <ul class="ml-14 mt-10">
+                    <li>
+                        - Communication
+                    </li>
+                    <li>
+                        - Responsibility
+                    </li>
+                    <li>
+                        - Critical Thinking
+                    </li>
+                    <li>
+                        - Creativity
+                    </li>
+                    <li>
+                        - Problem Solving
+                    </li>
+                </ul>
+                <h2 class="text-3xl md:text-6xl pt-20 ml-10">Studies</h2>
+                <ul class="ml-14 mt-10">
+                    <li>
+                        - High School Graduate </br>
+                        Francisco De Paula Santander IED School
+                    </li>
+                    <li>
+                        - Engineering Student (In Progress) </br>
+                        Pedagogical and Technological University 
+                        of Colombia
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <LineHorizontal style="bottom-0 right-2 animatedTD" />
+    </article>
+    
+
+</section>
+<style>
+    h2 {
+    text-shadow:
+      1px 0 #0000ff,
+      -1px 0 #0000ff,
+      0 1px #0000ff,
+      0 -1px #0000ff,
+      1px 1px #0000ff,
+      -1px -1px #0000ff,
+      1px -1px #0000ff,
+      -1px 1px #0000ff;
+  }
+
+</style>

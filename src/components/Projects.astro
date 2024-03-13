@@ -1,6 +1,7 @@
 ---
 import Navbar from "./Navbar.astro";
 import LineHorizontal from "./LineHorizontal.astro";
+import MenuPhone from "./MenuPhone.astro"
 import rickAndMorty from "./../images/RickAndMorty.webp";
 import camgro from "./../images/Camgro.webp";
 import React from "./icons/React.astro";
@@ -69,12 +70,12 @@ buyers can search and contact directly through an integrated chat. With registra
 and selling agricultural products.`,
     img: camgro.src,
     technologies: [TAGS.REACT, TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS, TAGS.SPRINGBOOT, TAGS.POSTGRESQL],
-    code : "https://github.com/marlon-rivera/CAMGRO"
+    code : "https://github.com/marlon-rivera/CAMGRO",
   },
 ];
 ---
 
-<section class="h-screen">
+<section class="h-screen animate-fade-in">
   <Navbar />
   <script>
     let page = document.getElementById("Projects");
@@ -82,9 +83,29 @@ and selling agricultural products.`,
       page.style.display = "flex";
     }
   </script>
-  <LineHorizontal />
-  <h2 class="text-6xl pt-20 ml-10">Projects</h2>
-  <div>
+  <LineHorizontal style="mt-10 ml-6 animatedTD" />
+  <div class="flex justify-evenly md:justify-start">
+    <h2 class="text-5xl md:text-6xl md:pt-20 ml-10">Projects</h2>
+    <button id="menu" class="absoulte top-2 rigth-2 bg-[#0000ff] bg-opacity-[0.2] rounded-md mr-4 md:hidden"> <Comment id="menu" /> </button>
+          <script>
+            let menu = document.getElementById("menu")
+            menu?.addEventListener("click", ()=>{
+              let menuPhone = document.getElementById("menuPhone")
+              if(menuPhone){
+                if(menuPhone.style.display == "block"){
+                  menuPhone.style.display = "none";
+                }else{
+                  if(menu){
+                    menu.style.display = "none"
+                  }
+                  menuPhone.style.display = "flex"
+                }
+              }
+            })
+          </script>
+          <MenuPhone  />
+  </div>
+  <div class="pb-10 ">
     <div class="projects flex flex-col gap-8 mt-5 justify-center items-center">
       {
         PROJECTS.map((p) => (
@@ -92,30 +113,29 @@ and selling agricultural products.`,
             <div>
               <h3 class="text-2xl">{p.title}</h3>
             </div>
-            <div class="flex gap-3">
-              <img src={p.img} alt="" />
-              <div>
-                <p>{p.description}</p>
-                <div>
+            <div class="md:flex  gap-3">
+              <img src={p?.img} alt=`project ${p.title}` />
+              <div class="flex flex-col">
+                <p>{p?.description}</p>
                   <div>
-                    <ul class="flex flex-wrap gap-2 mt-4">
-                      {p.technologies.map((t) => (
+                    <ul class="flex flex-wrap gap-2 mt-4 ">
+                      {p?.technologies.map((t) => (
                         <li>
-                          <span class=`flex rounded-full p-2 ${t.class} justify-center items-center gap-2` >
+                          <span class=`flex rounded-full px-2 ${t.class} justify-center items-center` >
                             <t.icon class="size-5" />
                             {t.name}
                           </span>
                         </li>
                       ))}
-                    </ul>
+                      </ul>
+                      <div class="flex gap-x-16 p-8">
+                        {p?.code && <span class="flex justify-center items-center hover:scale-125 "><a href={p.code} target="_blank" rel="noreferrer" class="flex justify-center items-center size-6">
+                        <Comment /> Code</a></span>} 
+                        {p?.preview && <span class="flex justify-center items-center hover:scale-125">
+                          <a href={p?.preview} target="_blank" rel="noreferrer" class="flex justify-center items-center size-6"> <Comment /> Preview</a></span>}
+                        </div>
                     </div>
-                  <div class="flex justify-end gap-x-5">
-                    {p.code && <span class="flex justify-center items-center">
-                    <Comment /> <a href={p.code} target="_blank" rel="noreferrer">Code</a></span>}
-                    {p.preview && <span class="flex justify-center items-center">
-                    <Comment /> <a href={p.preview} target="_blank" rel="noreferrer">Preview</a></span>}
-                    </div>
-                </div>
+                
               </div>
             </div>
           </article>

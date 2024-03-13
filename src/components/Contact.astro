@@ -1,0 +1,119 @@
+---
+import NavBar from "./Navbar.astro";
+import LineHorizontal from "./LineHorizontal.astro";
+import Github from "./icons/Github.astro";
+import Linkedin from "./icons/Linkedin.astro";
+import Email from "./icons/Email.astro";
+import MenuPhone from "./MenuPhone.astro"
+import Comment from "./Comment.astro"
+---
+
+<section>
+  <NavBar />
+  <script>
+    let page = document.getElementById("Contact");
+    if (page) {
+      page.style.display = "flex";
+    }
+  </script>
+  <div class="flex justify-evenly md:justify-start w-screen md:hidden">
+    <h2 class="text-5xl md:text-6xl md:pt-20 ml-10">Contact</h2>
+    <button id="menu" class="absoulte top-2 rigth-2 bg-[#0000ff] bg-opacity-[0.2] rounded-md mr-4 md:hidden"> <Comment id="menu" /> </button>
+          <script>
+            let menu = document.getElementById("menu")
+            menu?.addEventListener("click", ()=>{
+              let menuPhone = document.getElementById("menuPhone")
+              if(menuPhone){
+                if(menuPhone.style.display == "block"){
+                  menuPhone.style.display = "none";
+                }else{
+                  if(menu){
+                    menu.style.display = "none"
+                  }
+                  menuPhone.style.display = "flex"
+                }
+              }
+            })
+          </script>
+          <MenuPhone  />
+  </div>
+  <article>
+    <LineHorizontal style="mt-10 left-2 animatedDT" />
+    <h2 class="hidden md:block text-6xl pt-20 ml-10">Contact</h2>
+    <ul class="">
+      <li class="flex w-fit justify-center items-center" id="copyemail">
+        <Email class="rounded bg-white p-2 mt-6 ml-8 md:ml-14 size-14" />
+        <span class="text-sm md:text-2xl ml-4 mt-4" id="email">
+          riveramarlon33@gmail.com</span
+        >
+      </li>
+      <li class="flex w-fit">
+        <a
+          class="flex justify-center items-center"
+          href="https://www.linkedin.com/in/marlonjriverac/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Linkedin class="size-14 rounded bg-white p-2 mt-6 ml-8 md:ml-14" />
+          <span class="text-sm md:text-2xl ml-4 mt-4">
+            https://www.linkedin.com/in<br class="md:hidden">/marlonjriverac/</span
+          >
+        </a>
+      </li>
+      <li class="flex w-fit">
+        <a
+          class="flex w-fit justify-center items-center"
+          href="https://github.com/marlon-rivera"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Github class="size-14 rounded bg-white p-2 mt-6 ml-8 md:ml-14" />
+          <span class="text-sm md:text-2xl ml-4 mt-4">
+            https://github.com/marlon-rivera</span
+          >
+        </a>
+      </li>
+    </ul>
+    <script>
+      let copy = document.getElementById("copyemail");
+      if (copy) {
+        copy.addEventListener("click", function () {
+          let emailElement = document.getElementById("email");
+          if (emailElement) {
+            let email = emailElement.innerText;
+
+            let tempInput = document.createElement("input");
+            tempInput.setAttribute("value", email);
+            document.body.appendChild(tempInput);
+
+            tempInput.select();
+            document.execCommand("copy");
+
+            document.body.removeChild(tempInput);
+
+            alert("Correo copiado al portapapeles.");
+          }
+        });
+      }
+    </script>
+  </article>
+  <footer class="absolute bottom-0 py-5 md:py-0 md:h-20 w-screen h-fit bg-[#0000ff] bg-opacity-20 flex justify-center items-center text-center">
+    <p class="text-2xl">Thank you for visiting my portfolio.</br> See you in the next project!</p>
+  </footer>
+</section>
+<style>
+  h2,p {
+    text-shadow:
+      1px 0 #0000ff,
+      -1px 0 #0000ff,
+      0 1px #0000ff,
+      0 -1px #0000ff,
+      1px 1px #0000ff,
+      -1px -1px #0000ff,
+      1px -1px #0000ff,
+      -1px 1px #0000ff;
+  }
+  li {
+    cursor: pointer;
+  }
+</style>

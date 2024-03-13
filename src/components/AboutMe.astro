@@ -2,15 +2,16 @@
 import Line from "./Line.astro";
 import Emoji from "./../images/emoji.webp";
 import Comment from "./../components/Comment.astro";
+import MenuPhone from "./../components/MenuPhone.astro"
 ---
 
-<section class="w-screen h-screen animate-zoom-in flex flex-col justify-center">
-  <Line side="end" animation="animatedLR" margin="top-10 mr-20" />
+<section class="w-screen h-full animate-fade-in md:animate-zoom-in flex flex-col justify-center">
+  <Line side="end" animation="animatedLR" margin="mt-4 md:mt-10 mr-20" />
   <div class="flex flex-row justify-around w-screen items-center h-auto" >
     <div class="flex flex-col align-top items-center">
-      <img src={Emoji.src} class="m-8 w-[230px]" alt="Emoji Marlon Rivera" />
-      <div>
-        <ul>
+      <img src={Emoji.src} class="hidden md:block w-[30%] md:m-8 md:w-[230px]" alt="Emoji Marlon Rivera" />
+      <div class="hidden md:block">
+        <ul class="flex flex-col items-start">
           <li>
             <a
               href="/projects"
@@ -31,7 +32,7 @@ import Comment from "./../components/Comment.astro";
           </li>
           <li>
             <a
-              href="/contact"
+              href="/contactMe"
               class="flex justify-center mb-6 items-center text-white text-xl hover:scale-150"
             >
               <Comment />
@@ -41,8 +42,30 @@ import Comment from "./../components/Comment.astro";
         </ul>
       </div>
     </div>
-    <div class="w-[700px]">
-      <h2 class="text-white text-7xl text-right mr-44">About me</h2>
+    <div class="w-[95%] md:w-[700px]">
+      <div class="flex justify-center items-center">
+        <h2 class="text-white text-5xl md:mt-10 mt-0 w-full md:text-7xl text-left md:block">About me</h2>
+        <button id="menu" class="bg-[#0000ff] bg-opacity-[0.2] rounded-md mr-4 md:hidden"> <Comment id="menu" /> </button>
+        <script>
+          let menu = document.getElementById("menu")
+          menu?.addEventListener("click", ()=>{
+            let menuPhone = document.getElementById("menuPhone")
+            if(menuPhone){
+              if(menuPhone.style.display == "block"){
+                menuPhone.style.display = "none";
+              }else{
+                if(menu){
+                  menu.style.display = "none"
+                }
+                menuPhone.style.display = "flex"
+              }
+            }
+          })
+        </script>
+        
+        <MenuPhone  />
+      </div>
+      <img src={Emoji.src} class="iconPhone float-left shape w-[35%] rounded-full md:hidden" alt="Emoji Marlon Rivera" />
       <p class="text-white">
         I am an eighth-semester student majoring in Systems and Computing
         Engineering at UPTC (Tunja). My passion for technology is reflected in
@@ -85,5 +108,9 @@ import Comment from "./../components/Comment.astro";
   p {
     color: white;
     margin: 30px 0px 30px 0px;
+  }
+  .iconPhone{
+    shape-outside: circle();
+    margin: 10px 30px 3px 20px;
   }
 </style>
