@@ -5,9 +5,9 @@ import Comment from "./../components/Comment.astro";
 import MenuPhone from "./../components/MenuPhone.astro"
 ---
 
-<section class="w-screen h-full animate-fade-in md:animate-zoom-in flex flex-col justify-center">
-  <Line side="end" animation="animatedLR" margin="mt-4 md:mt-10 mr-20" />
-  <div class="flex flex-row justify-around w-screen items-center h-auto" >
+<Line side="end" animation="animatedLR" margin="mt-4 md:mt-6 mr-20" />
+<section class="w-screen mt-24 md:mt-0 h-scren animate-fade-in md:animate-zoom-in flex flex-col justify-center">
+  <div class="flex flex-row h-screen justify-around w-screen items-center md:-mt-14" >
     <div class="flex flex-col align-top items-center">
       <img src={Emoji.src} class="hidden md:block w-[30%] md:m-8 md:w-[230px]" alt="Emoji Marlon Rivera" />
       <div class="hidden md:block">
@@ -90,7 +90,7 @@ import MenuPhone from "./../components/MenuPhone.astro"
     </div>
   </div>
 
-  <Line side="start" animation="animatedRL" margin="flex-start bottom-10 ml-20" />
+  <Line side="start" animation="animatedRL" margin="flex-start mt-10 md:mt-0 md:bottom-10 ml-20" />
 </section>
 
 <style>
@@ -104,6 +104,9 @@ import MenuPhone from "./../components/MenuPhone.astro"
       -1px -1px #0000ff,
       1px -1px #0000ff,
       -1px 1px #0000ff;
+  }
+  a{
+    transition: transform 0.3s ease-in-out;
   }
   p {
     color: white;

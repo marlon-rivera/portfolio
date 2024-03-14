@@ -1,9 +1,46 @@
 ---
 import CommentHtml from "./CommentHtml.astro";
+import Github from "./icons/Github.astro";
+import Linkedin from "./icons/Linkedin.astro";
+import Email from "./icons/Email.astro";
 ---
 
-<nav class="hidden md:block absolute pb-5 right-0 mr-5" id="navbar">
-  <ul class="flex justify-evenly ">
+<nav
+  class="hidden md:flex justify-between absolute pb-5 w-screen right-0 items-center"
+  id="navbar"
+>
+  <ul class="flex ml-5">
+    <li class="flex w-fit justify-center items-center" id="copyemail">
+      <a class="flex justify-center items-center" href="#">
+        <Email class="rounded bg-white p-2 mr-2 size-8" />
+        <span class="hidden" id="email">
+          riveramarlon33@gmail.com</span
+        >
+      </a>
+    </li>
+    <li class="flex w-fit">
+      <a
+        class="flex justify-center items-center"
+        href="https://www.linkedin.com/in/marlonjriverac/"
+        target="_blank"
+        rel="noreferrer"
+        
+      >
+        <Linkedin class="size-8 rounded mr-2 bg-white p-1" />
+      </a>
+    </li>
+    <li class="flex w-fit">
+      <a
+        class="flex w-fit justify-center items-center"
+        href="https://github.com/marlon-rivera"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Github class="size-8 rounded mr-2 bg-white p-1" />
+      </a>
+    </li>
+  </ul>
+  <ul class="flex">
     <a href="/aboutMe">
       <CommentHtml text="About Me" />
     </a>
@@ -18,12 +55,32 @@ import CommentHtml from "./CommentHtml.astro";
     </a>
   </ul>
   <script>
+    let copy = document.getElementById("copyemail");
+    if (copy) {
+      copy.addEventListener("click", function () {
+        let emailElement = document.getElementById("email");
+        if (emailElement) {
+          let email = emailElement.innerText;
+
+          let tempInput = document.createElement("input");
+          tempInput.setAttribute("value", email);
+          document.body.appendChild(tempInput);
+
+          tempInput.select();
+          document.execCommand("copy");
+
+          document.body.removeChild(tempInput);
+
+          alert("Correo copiado al portapapeles.");
+        }
+      });
+    }
     window.addEventListener("scroll", function () {
       var navbar = document.getElementById("navbar");
       if (navbar && window.scrollY > 0) {
-        navbar.style.top = window.scrollY + "px"; // Mueve el navbar con el scroll
+        navbar.style.top = window.scrollY + "px";
       } else if (navbar) {
-        navbar.style.top = "0"; // Vuelve a la posición original cuando se desplaza hacia arriba
+        navbar.style.top = "0";
       }
     });
   </script>
@@ -31,17 +88,14 @@ import CommentHtml from "./CommentHtml.astro";
 <style>
   a {
     color: #fff;
+    transition: transform 0.3s ease-in-out;
   }
   a:hover {
     transform: scale(1.2);
   }
   #navbar {
     transition: top 0.1s;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0,0),
-      transparent
-    ); 
+    background: linear-gradient(to bottom, rgba(0, 0, 0), transparent);
     backdrop-filter: blur(10px);
   }
 </style>

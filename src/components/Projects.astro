@@ -15,7 +15,7 @@ import Comment from "./Comment.astro"
 const TAGS = {
   JAVASCRIPT: {
     name: "JavaScript",
-    class: "bg-[#F7DE1F] text-black",
+    class: "bg-[#F7DE1F] text-white",
     icon: JS,
   },
   REACT: {
@@ -40,7 +40,7 @@ const TAGS = {
   },
   SPRINGBOOT : {
     name : "Spring Boot",
-    class : "bg-[#BAE0BD] text-[#5E9C76]",
+    class : "bg-[#BAE0BD] text-white",
     icon : SpringBoot
   },
   POSTGRESQL : {
@@ -83,9 +83,9 @@ and selling agricultural products.`,
       page.style.display = "flex";
     }
   </script>
-  <LineHorizontal style="mt-10 ml-6 animatedTD" />
+  <LineHorizontal style="mt-10 left-2 animatedDT" />
   <div class="flex justify-evenly md:justify-start">
-    <h2 class="text-5xl md:text-6xl md:pt-20 ml-10">Projects</h2>
+    <h2 class="text-5xl md:text-6xl md:pt-20 ml-10 mb-12">Projects</h2>
     <button id="menu" class="absoulte top-2 rigth-2 bg-[#0000ff] bg-opacity-[0.2] rounded-md mr-4 md:hidden"> <Comment id="menu" /> </button>
           <script>
             let menu = document.getElementById("menu")
@@ -106,7 +106,7 @@ and selling agricultural products.`,
           <MenuPhone  />
   </div>
   <div class="pb-10 ">
-    <div class="projects flex flex-col gap-8 mt-5 justify-center items-center">
+    <div class="projects flex flex-col gap-20 mt-5 justify-center items-center">
       {
         PROJECTS.map((p) => (
           <article class="flex flex-col">
@@ -121,7 +121,7 @@ and selling agricultural products.`,
                     <ul class="flex flex-wrap gap-2 mt-4 ">
                       {p?.technologies.map((t) => (
                         <li>
-                          <span class=`flex rounded-full px-2 ${t.class} justify-center items-center` >
+                          <span class=`flex rounded-full py-1 px-2 ${t.class} justify-center items-center` >
                             <t.icon class="size-5" />
                             {t.name}
                           </span>

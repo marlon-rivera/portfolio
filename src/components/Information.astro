@@ -126,17 +126,17 @@ const tagsArray = Object.entries(TAGS).map(([key, value]) => ({
               </script>
               <MenuPhone />
       </div>
-    <article class="w-screen  h-screen flex  justify-center">
-        <LineHorizontal style="mt-10 left-2 animatedDT" />
-        <div class="w-[90%] md:flex">
-            <div style="flex-grow:1;">
+    <LineHorizontal style="mt-10 left-2 animatedDT" />
+    <article class="w-screen h-full md:h-screen flex justify-center items-center">
+        <div class="w-[90%] md:flex h-fit mt-10">
+            <div style="flex-grow:1;" class="h-fit ">
                 <h2 class="text-3xl md:text-6xl pt-20 ml-10">Technologies</h2>
-                <ul class="ml-14 mt-2">
+                <ul class="ml-14 mt-6 grid grid-cols-2">
                     {
                     tagsArray.map(t => (
                         
-                        <li class="flex items-center">
-                            - <t.icon class=`${t.class} rounded-full size-4` />  <span class="ml-2">  {t.name}</span> 
+                        <li class="flex items-center mb-4">
+                            - <t.icon class=`${t.class} rounded-full size-6` />  <span class="ml-2">  {t.name}</span> 
                         </li>
                     ))}
                     
@@ -151,10 +151,10 @@ const tagsArray = Object.entries(TAGS).map(([key, value]) => ({
                     </li>
                 </ul>
             </div>
-            <div class="hidden md:block">
-                <img src={verticalLine.src} class="h-[85%] ml-0 mt-20" alt="vertical line">
+            <div class="hidden md:flex h-[20%]">
+                <img src={verticalLine.src} class="h-[550px] mt-10" alt="vertical line">
             </div>
-            <div style="flex-grow:1;" class="pb-10 md:pb-0">
+            <div style="flex-grow:1;" class="pb-10 md:pb-0 h-fit">
                 <h2 class="text-3xl md:text-6xl pt-20 ml-10">Skills</h2>
                 <ul class="ml-14 mt-10">
                     <li>
@@ -187,8 +187,8 @@ const tagsArray = Object.entries(TAGS).map(([key, value]) => ({
                 </ul>
             </div>
         </div>
-        <LineHorizontal style="bottom-0 right-2 animatedTD" />
-    </article>
+      </article>
+      <LineHorizontal style="bottom-0 right-2 animatedTD" />
     
 
 </section>
